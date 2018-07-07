@@ -1,0 +1,26 @@
+{% extends 'estoque/base.html' %}
+{% block body %}
+    <br><br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <form class="form-horizontal" role="form" action="" method="post">
+                {% csrf_token %}
+                {% for campo in form %}
+                    <div class="form-group">
+                        <div class="col-md-10">{{ campo }}</div>
+                    </div>
+                {% endfor %}
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% if erro %}
+            <div class="row justify-content-center">
+                {{ erro }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
